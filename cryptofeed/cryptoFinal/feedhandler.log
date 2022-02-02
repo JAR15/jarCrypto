@@ -1,0 +1,179 @@
+2022-01-23 15:05:59,062 : WARNING : BLOCKCHAIN.ws.51: encountered connection issue server rejected WebSocket connection: HTTP 403 - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 481, in wait_for
+    return fut.result()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 659, in __await_impl__
+    await protocol.handshake(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 328, in handshake
+    raise InvalidStatusCode(status_code, response_headers)
+websockets.exceptions.InvalidStatusCode: server rejected WebSocket connection: HTTP 403
+2022-01-23 15:05:59,472 : ERROR : DERIBIT.ws.58: Received Error message: raw_subscriptions_not_available_for_unauthorized, Error code: 13778
+2022-01-23 15:06:01,296 : ERROR : OKEX: Error: {'event': 'error', 'msg': "channel:liquidations,instId:BTC-USDT-SWAP doesn't exist", 'code': '60018'}
+2022-01-23 15:06:11,751 : WARNING : BLOCKCHAIN.ws.51: encountered connection issue server rejected WebSocket connection: HTTP 403 - reconnecting in 2.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 481, in wait_for
+    return fut.result()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 659, in __await_impl__
+    await protocol.handshake(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 328, in handshake
+    raise InvalidStatusCode(status_code, response_headers)
+websockets.exceptions.InvalidStatusCode: server rejected WebSocket connection: HTTP 403
+2022-01-23 15:06:18,745 : WARNING : BLOCKCHAIN.ws.51: encountered connection issue server rejected WebSocket connection: HTTP 403 - reconnecting in 4.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 481, in wait_for
+    return fut.result()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 659, in __await_impl__
+    await protocol.handshake(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 328, in handshake
+    raise InvalidStatusCode(status_code, response_headers)
+websockets.exceptions.InvalidStatusCode: server rejected WebSocket connection: HTTP 403
+2022-01-23 15:06:22,978 : WARNING : BLOCKCHAIN.ws.51: encountered connection issue server rejected WebSocket connection: HTTP 403 - reconnecting in 8.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 481, in wait_for
+    return fut.result()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 659, in __await_impl__
+    await protocol.handshake(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 328, in handshake
+    raise InvalidStatusCode(status_code, response_headers)
+websockets.exceptions.InvalidStatusCode: server rejected WebSocket connection: HTTP 403
+2022-01-23 15:06:31,213 : WARNING : BLOCKCHAIN.ws.51: encountered connection issue server rejected WebSocket connection: HTTP 403 - reconnecting in 16.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 481, in wait_for
+    return fut.result()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 659, in __await_impl__
+    await protocol.handshake(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 328, in handshake
+    raise InvalidStatusCode(status_code, response_headers)
+websockets.exceptions.InvalidStatusCode: server rejected WebSocket connection: HTTP 403
+2022-01-23 15:06:47,545 : WARNING : BLOCKCHAIN.ws.51: encountered connection issue server rejected WebSocket connection: HTTP 403 - reconnecting in 32.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 481, in wait_for
+    return fut.result()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 659, in __await_impl__
+    await protocol.handshake(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 328, in handshake
+    raise InvalidStatusCode(status_code, response_headers)
+websockets.exceptions.InvalidStatusCode: server rejected WebSocket connection: HTTP 403
+2022-01-23 15:07:25,002 : WARNING : BLOCKCHAIN.ws.51: encountered connection issue server rejected WebSocket connection: HTTP 403 - reconnecting in 64.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 481, in wait_for
+    return fut.result()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 659, in __await_impl__
+    await protocol.handshake(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 328, in handshake
+    raise InvalidStatusCode(status_code, response_headers)
+websockets.exceptions.InvalidStatusCode: server rejected WebSocket connection: HTTP 403
+2022-01-23 15:08:28,899 : WARNING : DERIBIT.ws.58: received no messages within timeout, restarting connection
+2022-01-23 15:08:29,290 : WARNING : BLOCKCHAIN.ws.51: encountered connection issue server rejected WebSocket connection: HTTP 403 - reconnecting in 128.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 481, in wait_for
+    return fut.result()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 659, in __await_impl__
+    await protocol.handshake(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 328, in handshake
+    raise InvalidStatusCode(status_code, response_headers)
+websockets.exceptions.InvalidStatusCode: server rejected WebSocket connection: HTTP 403
+2022-01-23 15:08:29,374 : ERROR : DERIBIT.ws.58: Received Error message: raw_subscriptions_not_available_for_unauthorized, Error code: 13778
+2022-01-23 15:10:37,583 : WARNING : BLOCKCHAIN.ws.51: encountered connection issue server rejected WebSocket connection: HTTP 403 - reconnecting in 256.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 481, in wait_for
+    return fut.result()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 659, in __await_impl__
+    await protocol.handshake(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 328, in handshake
+    raise InvalidStatusCode(status_code, response_headers)
+websockets.exceptions.InvalidStatusCode: server rejected WebSocket connection: HTTP 403
+2022-01-23 15:10:59,295 : WARNING : DERIBIT.ws.58: received no messages within timeout, restarting connection
+2022-01-23 15:10:59,770 : ERROR : DERIBIT.ws.58: Received Error message: raw_subscriptions_not_available_for_unauthorized, Error code: 13778
+2022-01-23 15:13:29,719 : WARNING : DERIBIT.ws.58: received no messages within timeout, restarting connection
+2022-01-23 15:13:30,206 : ERROR : DERIBIT.ws.58: Received Error message: raw_subscriptions_not_available_for_unauthorized, Error code: 13778

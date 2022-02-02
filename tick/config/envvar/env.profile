@@ -1,0 +1,9 @@
+export HOMEDIR=/home/ec2-user
+export ENVDIR=$HOMEDIR/gitRepo/jarCrypto/tick
+export CODEDIR=$ENVDIR/code
+export CONFIGDIR=$ENVDIR/config
+export DATADIR=$ENVDIR/data
+export LOGDIR=$ENVDIR/logs
+export SYSUTILDIR=$ENVDIR/sysUtil
+export SCHEMADIR=$CONFIGDIR/schema
+export UTILDIR=$CODEDIR/util

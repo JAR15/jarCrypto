@@ -1,0 +1,2210 @@
+2021-12-20 16:50:12,191 : WARNING : BLOCKCHAIN.ws.51: encountered connection issue server rejected WebSocket connection: HTTP 403 - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 481, in wait_for
+    return fut.result()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 659, in __await_impl__
+    await protocol.handshake(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 328, in handshake
+    raise InvalidStatusCode(status_code, response_headers)
+websockets.exceptions.InvalidStatusCode: server rejected WebSocket connection: HTTP 403
+2021-12-20 16:50:12,731 : ERROR : OKEX: Error: {'event': 'error', 'msg': "channel:liquidations,instId:BTC-USDT-SWAP doesn't exist", 'code': '60018'}
+2021-12-20 16:50:33,202 : ERROR : BLOCKCHAIN.ws.51: encountered an exception, reconnecting in 2.0 seconds
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 659, in __await_impl__
+    await protocol.handshake(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 328, in handshake
+    raise InvalidStatusCode(status_code, response_headers)
+websockets.exceptions.InvalidStatusCode: server rejected WebSocket connection: HTTP 403
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 668, in __await_impl__
+    await protocol.wait_closed()
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 492, in wait_for
+    fut.result()
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 494, in wait_for
+    raise exceptions.TimeoutError() from exc
+asyncio.exceptions.TimeoutError
+2021-12-20 16:50:45,637 : WARNING : BITFLYER.ws.46: encountered connection issue no close frame received or sent - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 944, in transfer_data
+    message = await self.read_message()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 1013, in read_message
+    frame = await self.read_data_frame(max_size=self.max_size)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 1089, in read_data_frame
+    frame = await self.read_frame(max_size)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 1144, in read_frame
+    frame = await Frame.read(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/framing.py", line 70, in read
+    data = await reader(2)
+  File "/usr/lib64/python3.9/asyncio/streams.py", line 721, in readexactly
+    raise exceptions.IncompleteReadError(incomplete, n)
+asyncio.exceptions.IncompleteReadError: 0 bytes read on a total of 2 expected bytes
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 115, in _handler
+    async for message in connection.read():
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 320, in read
+    async for data in self.conn:
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 481, in __aiter__
+    yield await self.recv()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 552, in recv
+    await self.ensure_open()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 920, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedError: no close frame received or sent
+2021-12-20 16:51:01,877 : ERROR : BLOCKCHAIN.ws.51: encountered an exception, reconnecting in 4.0 seconds
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 654, in __await_impl__
+    transport, protocol = await self._create_connection()
+  File "uvloop/loop.pyx", line 2014, in create_connection
+  File "uvloop/loop.pyx", line 2001, in uvloop.loop.Loop.create_connection
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 492, in wait_for
+    fut.result()
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 494, in wait_for
+    raise exceptions.TimeoutError() from exc
+asyncio.exceptions.TimeoutError
+2021-12-20 16:51:19,281 : ERROR : BITFLYER.ws.46: encountered an exception, reconnecting in 2.0 seconds
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 654, in __await_impl__
+    transport, protocol = await self._create_connection()
+  File "uvloop/loop.pyx", line 2014, in create_connection
+  File "uvloop/loop.pyx", line 2001, in uvloop.loop.Loop.create_connection
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 492, in wait_for
+    fut.result()
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 494, in wait_for
+    raise exceptions.TimeoutError() from exc
+asyncio.exceptions.TimeoutError
+2021-12-20 16:51:34,502 : ERROR : BLOCKCHAIN.ws.51: encountered an exception, reconnecting in 8.0 seconds
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 654, in __await_impl__
+    transport, protocol = await self._create_connection()
+  File "uvloop/loop.pyx", line 2014, in create_connection
+  File "uvloop/loop.pyx", line 2001, in uvloop.loop.Loop.create_connection
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 492, in wait_for
+    fut.result()
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 494, in wait_for
+    raise exceptions.TimeoutError() from exc
+asyncio.exceptions.TimeoutError
+2021-12-20 16:51:41,112 : WARNING : DYDX.ws.59: encountered connection issue no close frame received or sent - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 944, in transfer_data
+    message = await self.read_message()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 1013, in read_message
+    frame = await self.read_data_frame(max_size=self.max_size)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 1089, in read_data_frame
+    frame = await self.read_frame(max_size)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 1144, in read_frame
+    frame = await Frame.read(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/framing.py", line 70, in read
+    data = await reader(2)
+  File "/usr/lib64/python3.9/asyncio/streams.py", line 723, in readexactly
+    await self._wait_for_data('readexactly')
+  File "/usr/lib64/python3.9/asyncio/streams.py", line 517, in _wait_for_data
+    await self._waiter
+BrokenPipeError: [Errno 32] Broken pipe
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 115, in _handler
+    async for message in connection.read():
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 320, in read
+    async for data in self.conn:
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 481, in __aiter__
+    yield await self.recv()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 552, in recv
+    await self.ensure_open()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 920, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedError: no close frame received or sent
+2021-12-20 16:51:46,700 : ERROR : BITFLYER.ws.46: encountered an exception, reconnecting in 4.0 seconds
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 654, in __await_impl__
+    transport, protocol = await self._create_connection()
+  File "uvloop/loop.pyx", line 2014, in create_connection
+  File "uvloop/loop.pyx", line 2001, in uvloop.loop.Loop.create_connection
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 492, in wait_for
+    fut.result()
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 494, in wait_for
+    raise exceptions.TimeoutError() from exc
+asyncio.exceptions.TimeoutError
+2021-12-20 16:52:05,859 : ERROR : DYDX.ws.59: encountered an exception, reconnecting in 2.0 seconds
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 659, in __await_impl__
+    await protocol.handshake(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 322, in handshake
+    status_code, response_headers = await self.read_http_response()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 135, in read_http_response
+    status_code, reason, headers = await read_response(self.reader)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/http.py", line 120, in read_response
+    status_line = await read_line(stream)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/http.py", line 194, in read_line
+    line = await stream.readline()
+  File "/usr/lib64/python3.9/asyncio/streams.py", line 540, in readline
+    line = await self.readuntil(sep)
+  File "/usr/lib64/python3.9/asyncio/streams.py", line 632, in readuntil
+    await self._wait_for_data('readuntil')
+  File "/usr/lib64/python3.9/asyncio/streams.py", line 517, in _wait_for_data
+    await self._waiter
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 492, in wait_for
+    fut.result()
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 494, in wait_for
+    raise exceptions.TimeoutError() from exc
+asyncio.exceptions.TimeoutError
+2021-12-20 16:52:05,861 : ERROR : BLOCKCHAIN.ws.51: encountered an exception, reconnecting in 16.0 seconds
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 659, in __await_impl__
+    await protocol.handshake(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 322, in handshake
+    status_code, response_headers = await self.read_http_response()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 135, in read_http_response
+    status_code, reason, headers = await read_response(self.reader)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/http.py", line 120, in read_response
+    status_line = await read_line(stream)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/http.py", line 194, in read_line
+    line = await stream.readline()
+  File "/usr/lib64/python3.9/asyncio/streams.py", line 540, in readline
+    line = await self.readuntil(sep)
+  File "/usr/lib64/python3.9/asyncio/streams.py", line 632, in readuntil
+    await self._wait_for_data('readuntil')
+  File "/usr/lib64/python3.9/asyncio/streams.py", line 517, in _wait_for_data
+    await self._waiter
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 492, in wait_for
+    fut.result()
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 494, in wait_for
+    raise exceptions.TimeoutError() from exc
+asyncio.exceptions.TimeoutError
+2021-12-20 16:52:13,533 : ERROR : BITFLYER.ws.46: encountered an exception, reconnecting in 8.0 seconds
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 654, in __await_impl__
+    transport, protocol = await self._create_connection()
+  File "uvloop/loop.pyx", line 2069, in create_connection
+  File "uvloop/loop.pyx", line 2064, in uvloop.loop.Loop.create_connection
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 492, in wait_for
+    fut.result()
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 494, in wait_for
+    raise exceptions.TimeoutError() from exc
+asyncio.exceptions.TimeoutError
+2021-12-20 16:52:20,830 : WARNING : HUOBI_SWAP.ws.66: encountered connection issue no close frame received or sent - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 944, in transfer_data
+    message = await self.read_message()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 1013, in read_message
+    frame = await self.read_data_frame(max_size=self.max_size)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 1089, in read_data_frame
+    frame = await self.read_frame(max_size)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 1144, in read_frame
+    frame = await Frame.read(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/framing.py", line 70, in read
+    data = await reader(2)
+  File "/usr/lib64/python3.9/asyncio/streams.py", line 723, in readexactly
+    await self._wait_for_data('readexactly')
+  File "/usr/lib64/python3.9/asyncio/streams.py", line 517, in _wait_for_data
+    await self._waiter
+BrokenPipeError: [Errno 32] Broken pipe
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 115, in _handler
+    async for message in connection.read():
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 320, in read
+    async for data in self.conn:
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 481, in __aiter__
+    yield await self.recv()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 552, in recv
+    await self.ensure_open()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 920, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedError: no close frame received or sent
+2021-12-20 16:52:26,070 : ERROR : DYDX.ws.59: encountered an exception, reconnecting in 4.0 seconds
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 659, in __await_impl__
+    await protocol.handshake(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 322, in handshake
+    status_code, response_headers = await self.read_http_response()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 135, in read_http_response
+    status_code, reason, headers = await read_response(self.reader)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/http.py", line 120, in read_response
+    status_line = await read_line(stream)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/http.py", line 194, in read_line
+    line = await stream.readline()
+  File "/usr/lib64/python3.9/asyncio/streams.py", line 540, in readline
+    line = await self.readuntil(sep)
+  File "/usr/lib64/python3.9/asyncio/streams.py", line 632, in readuntil
+    await self._wait_for_data('readuntil')
+  File "/usr/lib64/python3.9/asyncio/streams.py", line 517, in _wait_for_data
+    await self._waiter
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 492, in wait_for
+    fut.result()
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 494, in wait_for
+    raise exceptions.TimeoutError() from exc
+asyncio.exceptions.TimeoutError
+2021-12-20 16:52:41,084 : ERROR : BITFLYER.ws.46: encountered an exception, reconnecting in 16.0 seconds
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 659, in __await_impl__
+    await protocol.handshake(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 322, in handshake
+    status_code, response_headers = await self.read_http_response()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 135, in read_http_response
+    status_code, reason, headers = await read_response(self.reader)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/http.py", line 120, in read_response
+    status_line = await read_line(stream)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/http.py", line 194, in read_line
+    line = await stream.readline()
+  File "/usr/lib64/python3.9/asyncio/streams.py", line 540, in readline
+    line = await self.readuntil(sep)
+  File "/usr/lib64/python3.9/asyncio/streams.py", line 632, in readuntil
+    await self._wait_for_data('readuntil')
+  File "/usr/lib64/python3.9/asyncio/streams.py", line 517, in _wait_for_data
+    await self._waiter
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 492, in wait_for
+    fut.result()
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 494, in wait_for
+    raise exceptions.TimeoutError() from exc
+asyncio.exceptions.TimeoutError
+2021-12-20 16:52:41,084 : ERROR : HUOBI_SWAP.ws.66: encountered an exception, reconnecting in 2.0 seconds
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 659, in __await_impl__
+    await protocol.handshake(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 322, in handshake
+    status_code, response_headers = await self.read_http_response()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 135, in read_http_response
+    status_code, reason, headers = await read_response(self.reader)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/http.py", line 120, in read_response
+    status_line = await read_line(stream)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/http.py", line 194, in read_line
+    line = await stream.readline()
+  File "/usr/lib64/python3.9/asyncio/streams.py", line 540, in readline
+    line = await self.readuntil(sep)
+  File "/usr/lib64/python3.9/asyncio/streams.py", line 632, in readuntil
+    await self._wait_for_data('readuntil')
+  File "/usr/lib64/python3.9/asyncio/streams.py", line 517, in _wait_for_data
+    await self._waiter
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 492, in wait_for
+    fut.result()
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 494, in wait_for
+    raise exceptions.TimeoutError() from exc
+asyncio.exceptions.TimeoutError
+2021-12-20 16:52:41,085 : ERROR : BLOCKCHAIN.ws.51: encountered an exception, reconnecting in 32.0 seconds
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 659, in __await_impl__
+    await protocol.handshake(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 322, in handshake
+    status_code, response_headers = await self.read_http_response()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 135, in read_http_response
+    status_code, reason, headers = await read_response(self.reader)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/http.py", line 120, in read_response
+    status_line = await read_line(stream)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/http.py", line 194, in read_line
+    line = await stream.readline()
+  File "/usr/lib64/python3.9/asyncio/streams.py", line 540, in readline
+    line = await self.readuntil(sep)
+  File "/usr/lib64/python3.9/asyncio/streams.py", line 632, in readuntil
+    await self._wait_for_data('readuntil')
+  File "/usr/lib64/python3.9/asyncio/streams.py", line 517, in _wait_for_data
+    await self._waiter
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 492, in wait_for
+    fut.result()
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 494, in wait_for
+    raise exceptions.TimeoutError() from exc
+asyncio.exceptions.TimeoutError
+2021-12-20 16:52:48,592 : ERROR : DYDX.ws.59: encountered an exception, reconnecting in 8.0 seconds
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 659, in __await_impl__
+    await protocol.handshake(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 322, in handshake
+    status_code, response_headers = await self.read_http_response()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 135, in read_http_response
+    status_code, reason, headers = await read_response(self.reader)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/http.py", line 120, in read_response
+    status_line = await read_line(stream)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/http.py", line 194, in read_line
+    line = await stream.readline()
+  File "/usr/lib64/python3.9/asyncio/streams.py", line 540, in readline
+    line = await self.readuntil(sep)
+  File "/usr/lib64/python3.9/asyncio/streams.py", line 632, in readuntil
+    await self._wait_for_data('readuntil')
+  File "/usr/lib64/python3.9/asyncio/streams.py", line 517, in _wait_for_data
+    await self._waiter
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 492, in wait_for
+    fut.result()
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 494, in wait_for
+    raise exceptions.TimeoutError() from exc
+asyncio.exceptions.TimeoutError
+2021-12-20 16:53:53,717 : WARNING : KRAKEN_FUTURES.ws.67: encountered connection issue no close frame received or sent - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 944, in transfer_data
+    message = await self.read_message()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 1013, in read_message
+    frame = await self.read_data_frame(max_size=self.max_size)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 1089, in read_data_frame
+    frame = await self.read_frame(max_size)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 1144, in read_frame
+    frame = await Frame.read(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/framing.py", line 100, in read
+    data = await reader(length)
+  File "/usr/lib64/python3.9/asyncio/streams.py", line 723, in readexactly
+    await self._wait_for_data('readexactly')
+  File "/usr/lib64/python3.9/asyncio/streams.py", line 517, in _wait_for_data
+    await self._waiter
+BrokenPipeError: [Errno 32] Broken pipe
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 115, in _handler
+    async for message in connection.read():
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 320, in read
+    async for data in self.conn:
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 481, in __aiter__
+    yield await self.recv()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 552, in recv
+    await self.ensure_open()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 920, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedError: no close frame received or sent
+2021-12-20 16:53:53,814 : WARNING : BITFLYER.ws.46: encountered connection issue no close frame received or sent - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 944, in transfer_data
+    message = await self.read_message()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 1013, in read_message
+    frame = await self.read_data_frame(max_size=self.max_size)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 1089, in read_data_frame
+    frame = await self.read_frame(max_size)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 1144, in read_frame
+    frame = await Frame.read(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/framing.py", line 70, in read
+    data = await reader(2)
+  File "/usr/lib64/python3.9/asyncio/streams.py", line 721, in readexactly
+    raise exceptions.IncompleteReadError(incomplete, n)
+asyncio.exceptions.IncompleteReadError: 0 bytes read on a total of 2 expected bytes
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 115, in _handler
+    async for message in connection.read():
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 320, in read
+    async for data in self.conn:
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 481, in __aiter__
+    yield await self.recv()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 552, in recv
+    await self.ensure_open()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 920, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedError: no close frame received or sent
+2021-12-20 16:53:53,823 : ERROR : BLOCKCHAIN.ws.51: encountered an exception, reconnecting in 64.0 seconds
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 654, in __await_impl__
+    transport, protocol = await self._create_connection()
+  File "uvloop/loop.pyx", line 2014, in create_connection
+  File "uvloop/loop.pyx", line 2001, in uvloop.loop.Loop.create_connection
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 492, in wait_for
+    fut.result()
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 494, in wait_for
+    raise exceptions.TimeoutError() from exc
+asyncio.exceptions.TimeoutError
+2021-12-20 16:53:57,757 : ERROR : HUOBI_DM.ws.65: encountered an exception, reconnecting in 1.0 seconds
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 119, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/huobi_dm.py", line 123, in message_handler
+    await conn.write(json.dumps({'pong': msg['ping']}))
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 327, in write
+    raise ConnectionClosed
+cryptofeed.exceptions.ConnectionClosed
+2021-12-20 16:54:01,380 : WARNING : PROBIT.ws.78: encountered connection issue no close frame received or sent - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 944, in transfer_data
+    message = await self.read_message()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 1013, in read_message
+    frame = await self.read_data_frame(max_size=self.max_size)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 1089, in read_data_frame
+    frame = await self.read_frame(max_size)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 1144, in read_frame
+    frame = await Frame.read(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/framing.py", line 70, in read
+    data = await reader(2)
+  File "/usr/lib64/python3.9/asyncio/streams.py", line 721, in readexactly
+    raise exceptions.IncompleteReadError(incomplete, n)
+asyncio.exceptions.IncompleteReadError: 0 bytes read on a total of 2 expected bytes
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 115, in _handler
+    async for message in connection.read():
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 320, in read
+    async for data in self.conn:
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 481, in __aiter__
+    yield await self.recv()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 552, in recv
+    await self.ensure_open()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 920, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedError: no close frame received or sent
+2021-12-20 16:54:02,652 : ERROR : HUOBI_SWAP.ws.66: encountered an exception, reconnecting in 1.0 seconds
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 119, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/huobi_dm.py", line 123, in message_handler
+    await conn.write(json.dumps({'pong': msg['ping']}))
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 327, in write
+    raise ConnectionClosed
+cryptofeed.exceptions.ConnectionClosed
+2021-12-20 16:54:08,059 : WARNING : BITSTAMP.ws.49: encountered connection issue no close frame received or sent - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 944, in transfer_data
+    message = await self.read_message()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 1013, in read_message
+    frame = await self.read_data_frame(max_size=self.max_size)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 1089, in read_data_frame
+    frame = await self.read_frame(max_size)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 1144, in read_frame
+    frame = await Frame.read(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/framing.py", line 70, in read
+    data = await reader(2)
+  File "/usr/lib64/python3.9/asyncio/streams.py", line 721, in readexactly
+    raise exceptions.IncompleteReadError(incomplete, n)
+asyncio.exceptions.IncompleteReadError: 0 bytes read on a total of 2 expected bytes
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 115, in _handler
+    async for message in connection.read():
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 320, in read
+    async for data in self.conn:
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 481, in __aiter__
+    yield await self.recv()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 552, in recv
+    await self.ensure_open()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 920, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedError: no close frame received or sent
+2021-12-20 16:54:22,029 : ERROR : HUOBI_DM.ws.65: encountered an exception, reconnecting in 2.0 seconds
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 654, in __await_impl__
+    transport, protocol = await self._create_connection()
+  File "uvloop/loop.pyx", line 2014, in create_connection
+  File "uvloop/loop.pyx", line 2001, in uvloop.loop.Loop.create_connection
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 492, in wait_for
+    fut.result()
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 494, in wait_for
+    raise exceptions.TimeoutError() from exc
+asyncio.exceptions.TimeoutError
+2021-12-20 16:54:22,030 : ERROR : KRAKEN_FUTURES.ws.67: encountered an exception, reconnecting in 2.0 seconds
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 654, in __await_impl__
+    transport, protocol = await self._create_connection()
+  File "uvloop/loop.pyx", line 2069, in create_connection
+  File "uvloop/loop.pyx", line 2064, in uvloop.loop.Loop.create_connection
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 492, in wait_for
+    fut.result()
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 494, in wait_for
+    raise exceptions.TimeoutError() from exc
+asyncio.exceptions.TimeoutError
+2021-12-20 16:54:22,031 : ERROR : BITFLYER.ws.46: encountered an exception, reconnecting in 2.0 seconds
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 654, in __await_impl__
+    transport, protocol = await self._create_connection()
+  File "uvloop/loop.pyx", line 2014, in create_connection
+  File "uvloop/loop.pyx", line 2001, in uvloop.loop.Loop.create_connection
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 492, in wait_for
+    fut.result()
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 494, in wait_for
+    raise exceptions.TimeoutError() from exc
+asyncio.exceptions.TimeoutError
+2021-12-20 16:54:26,404 : ERROR : PROBIT.ws.78: encountered an exception, reconnecting in 2.0 seconds
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 659, in __await_impl__
+    await protocol.handshake(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 322, in handshake
+    status_code, response_headers = await self.read_http_response()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 135, in read_http_response
+    status_code, reason, headers = await read_response(self.reader)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/http.py", line 120, in read_response
+    status_line = await read_line(stream)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/http.py", line 194, in read_line
+    line = await stream.readline()
+  File "/usr/lib64/python3.9/asyncio/streams.py", line 540, in readline
+    line = await self.readuntil(sep)
+  File "/usr/lib64/python3.9/asyncio/streams.py", line 632, in readuntil
+    await self._wait_for_data('readuntil')
+  File "/usr/lib64/python3.9/asyncio/streams.py", line 517, in _wait_for_data
+    await self._waiter
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 492, in wait_for
+    fut.result()
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 494, in wait_for
+    raise exceptions.TimeoutError() from exc
+asyncio.exceptions.TimeoutError
+2021-12-20 16:54:30,936 : ERROR : HUOBI_SWAP.ws.66: encountered an exception, reconnecting in 2.0 seconds
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 654, in __await_impl__
+    transport, protocol = await self._create_connection()
+  File "uvloop/loop.pyx", line 2069, in create_connection
+  File "uvloop/loop.pyx", line 2064, in uvloop.loop.Loop.create_connection
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 492, in wait_for
+    fut.result()
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 494, in wait_for
+    raise exceptions.TimeoutError() from exc
+asyncio.exceptions.TimeoutError
+2021-12-20 16:54:36,874 : ERROR : BITSTAMP.ws.49: encountered an exception, reconnecting in 2.0 seconds
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 654, in __await_impl__
+    transport, protocol = await self._create_connection()
+  File "uvloop/loop.pyx", line 2014, in create_connection
+  File "uvloop/loop.pyx", line 2001, in uvloop.loop.Loop.create_connection
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 492, in wait_for
+    fut.result()
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 494, in wait_for
+    raise exceptions.TimeoutError() from exc
+asyncio.exceptions.TimeoutError
+2021-12-20 16:54:48,820 : ERROR : HUOBI_DM.ws.65: encountered an exception, reconnecting in 4.0 seconds
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 654, in __await_impl__
+    transport, protocol = await self._create_connection()
+  File "uvloop/loop.pyx", line 2014, in create_connection
+  File "uvloop/loop.pyx", line 2001, in uvloop.loop.Loop.create_connection
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 492, in wait_for
+    fut.result()
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 494, in wait_for
+    raise exceptions.TimeoutError() from exc
+asyncio.exceptions.TimeoutError
+2021-12-20 16:54:48,821 : ERROR : KRAKEN_FUTURES.ws.67: encountered an exception, reconnecting in 4.0 seconds
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 654, in __await_impl__
+    transport, protocol = await self._create_connection()
+  File "uvloop/loop.pyx", line 2014, in create_connection
+  File "uvloop/loop.pyx", line 2001, in uvloop.loop.Loop.create_connection
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 492, in wait_for
+    fut.result()
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 494, in wait_for
+    raise exceptions.TimeoutError() from exc
+asyncio.exceptions.TimeoutError
+2021-12-20 16:54:48,821 : ERROR : BITFLYER.ws.46: encountered an exception, reconnecting in 4.0 seconds
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 654, in __await_impl__
+    transport, protocol = await self._create_connection()
+  File "uvloop/loop.pyx", line 2014, in create_connection
+  File "uvloop/loop.pyx", line 2001, in uvloop.loop.Loop.create_connection
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 492, in wait_for
+    fut.result()
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 494, in wait_for
+    raise exceptions.TimeoutError() from exc
+asyncio.exceptions.TimeoutError
+2021-12-20 16:54:52,416 : ERROR : PROBIT.ws.78: encountered an exception, reconnecting in 4.0 seconds
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 654, in __await_impl__
+    transport, protocol = await self._create_connection()
+  File "uvloop/loop.pyx", line 2014, in create_connection
+  File "uvloop/loop.pyx", line 2001, in uvloop.loop.Loop.create_connection
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 492, in wait_for
+    fut.result()
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 494, in wait_for
+    raise exceptions.TimeoutError() from exc
+asyncio.exceptions.TimeoutError
+2021-12-20 16:54:52,549 : WARNING : DYDX.ws.59: encountered connection issue no close frame received or sent - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 944, in transfer_data
+    message = await self.read_message()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 1013, in read_message
+    frame = await self.read_data_frame(max_size=self.max_size)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 1089, in read_data_frame
+    frame = await self.read_frame(max_size)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 1144, in read_frame
+    frame = await Frame.read(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/framing.py", line 70, in read
+    data = await reader(2)
+  File "/usr/lib64/python3.9/asyncio/streams.py", line 723, in readexactly
+    await self._wait_for_data('readexactly')
+  File "/usr/lib64/python3.9/asyncio/streams.py", line 517, in _wait_for_data
+    await self._waiter
+BrokenPipeError: [Errno 32] Broken pipe
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 115, in _handler
+    async for message in connection.read():
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 320, in read
+    async for data in self.conn:
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 481, in __aiter__
+    yield await self.recv()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 552, in recv
+    await self.ensure_open()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 920, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedError: no close frame received or sent
+2021-12-20 16:54:55,949 : ERROR : HUOBI_SWAP.ws.66: encountered an exception, reconnecting in 4.0 seconds
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 654, in __await_impl__
+    transport, protocol = await self._create_connection()
+  File "uvloop/loop.pyx", line 2014, in create_connection
+  File "uvloop/loop.pyx", line 2001, in uvloop.loop.Loop.create_connection
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 492, in wait_for
+    fut.result()
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 494, in wait_for
+    raise exceptions.TimeoutError() from exc
+asyncio.exceptions.TimeoutError
+2021-12-20 16:55:02,513 : ERROR : BITSTAMP.ws.49: encountered an exception, reconnecting in 4.0 seconds
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 654, in __await_impl__
+    transport, protocol = await self._create_connection()
+  File "uvloop/loop.pyx", line 2069, in create_connection
+  File "uvloop/loop.pyx", line 2064, in uvloop.loop.Loop.create_connection
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 492, in wait_for
+    fut.result()
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 494, in wait_for
+    raise exceptions.TimeoutError() from exc
+asyncio.exceptions.TimeoutError
+2021-12-20 16:55:19,298 : ERROR : BITFLYER.ws.46: encountered an exception, reconnecting in 8.0 seconds
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 659, in __await_impl__
+    await protocol.handshake(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 322, in handshake
+    status_code, response_headers = await self.read_http_response()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 135, in read_http_response
+    status_code, reason, headers = await read_response(self.reader)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/http.py", line 120, in read_response
+    status_line = await read_line(stream)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/http.py", line 194, in read_line
+    line = await stream.readline()
+  File "/usr/lib64/python3.9/asyncio/streams.py", line 540, in readline
+    line = await self.readuntil(sep)
+  File "/usr/lib64/python3.9/asyncio/streams.py", line 632, in readuntil
+    await self._wait_for_data('readuntil')
+  File "/usr/lib64/python3.9/asyncio/streams.py", line 517, in _wait_for_data
+    await self._waiter
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 492, in wait_for
+    fut.result()
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 494, in wait_for
+    raise exceptions.TimeoutError() from exc
+asyncio.exceptions.TimeoutError
+2021-12-20 16:55:19,299 : ERROR : DYDX.ws.59: encountered an exception, reconnecting in 2.0 seconds
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 659, in __await_impl__
+    await protocol.handshake(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 322, in handshake
+    status_code, response_headers = await self.read_http_response()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 135, in read_http_response
+    status_code, reason, headers = await read_response(self.reader)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/http.py", line 120, in read_response
+    status_line = await read_line(stream)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/http.py", line 194, in read_line
+    line = await stream.readline()
+  File "/usr/lib64/python3.9/asyncio/streams.py", line 540, in readline
+    line = await self.readuntil(sep)
+  File "/usr/lib64/python3.9/asyncio/streams.py", line 632, in readuntil
+    await self._wait_for_data('readuntil')
+  File "/usr/lib64/python3.9/asyncio/streams.py", line 517, in _wait_for_data
+    await self._waiter
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 492, in wait_for
+    fut.result()
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 494, in wait_for
+    raise exceptions.TimeoutError() from exc
+asyncio.exceptions.TimeoutError
+2021-12-20 16:55:19,300 : ERROR : PROBIT.ws.78: encountered an exception, reconnecting in 8.0 seconds
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 654, in __await_impl__
+    transport, protocol = await self._create_connection()
+  File "uvloop/loop.pyx", line 2069, in create_connection
+  File "uvloop/loop.pyx", line 2064, in uvloop.loop.Loop.create_connection
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 492, in wait_for
+    fut.result()
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 494, in wait_for
+    raise exceptions.TimeoutError() from exc
+asyncio.exceptions.TimeoutError
+2021-12-20 16:55:19,300 : ERROR : BLOCKCHAIN.ws.51: encountered an exception, reconnecting in 128.0 seconds
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 654, in __await_impl__
+    transport, protocol = await self._create_connection()
+  File "uvloop/loop.pyx", line 2069, in create_connection
+  File "uvloop/loop.pyx", line 2064, in uvloop.loop.Loop.create_connection
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 492, in wait_for
+    fut.result()
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 494, in wait_for
+    raise exceptions.TimeoutError() from exc
+asyncio.exceptions.TimeoutError
+2021-12-20 16:55:22,348 : ERROR : HUOBI_SWAP.ws.66: encountered an exception, reconnecting in 8.0 seconds
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 654, in __await_impl__
+    transport, protocol = await self._create_connection()
+  File "uvloop/loop.pyx", line 2069, in create_connection
+  File "uvloop/loop.pyx", line 2064, in uvloop.loop.Loop.create_connection
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 492, in wait_for
+    fut.result()
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 494, in wait_for
+    raise exceptions.TimeoutError() from exc
+asyncio.exceptions.TimeoutError
+2021-12-20 16:55:31,663 : ERROR : BITSTAMP.ws.49: encountered an exception, reconnecting in 8.0 seconds
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 654, in __await_impl__
+    transport, protocol = await self._create_connection()
+  File "uvloop/loop.pyx", line 2014, in create_connection
+  File "uvloop/loop.pyx", line 2001, in uvloop.loop.Loop.create_connection
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 492, in wait_for
+    fut.result()
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 494, in wait_for
+    raise exceptions.TimeoutError() from exc
+asyncio.exceptions.TimeoutError
+2021-12-20 16:55:43,522 : ERROR : DYDX.ws.59: encountered an exception, reconnecting in 4.0 seconds
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 654, in __await_impl__
+    transport, protocol = await self._create_connection()
+  File "uvloop/loop.pyx", line 2014, in create_connection
+  File "uvloop/loop.pyx", line 2001, in uvloop.loop.Loop.create_connection
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 492, in wait_for
+    fut.result()
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 494, in wait_for
+    raise exceptions.TimeoutError() from exc
+asyncio.exceptions.TimeoutError
+2021-12-20 16:55:52,549 : ERROR : BITFLYER.ws.46: encountered an exception, reconnecting in 16.0 seconds
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 654, in __await_impl__
+    transport, protocol = await self._create_connection()
+  File "uvloop/loop.pyx", line 2014, in create_connection
+  File "uvloop/loop.pyx", line 2001, in uvloop.loop.Loop.create_connection
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 492, in wait_for
+    fut.result()
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 494, in wait_for
+    raise exceptions.TimeoutError() from exc
+asyncio.exceptions.TimeoutError
+2021-12-20 16:55:52,550 : ERROR : PROBIT.ws.78: encountered an exception, reconnecting in 16.0 seconds
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 654, in __await_impl__
+    transport, protocol = await self._create_connection()
+  File "uvloop/loop.pyx", line 2069, in create_connection
+  File "uvloop/loop.pyx", line 2064, in uvloop.loop.Loop.create_connection
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 492, in wait_for
+    fut.result()
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 494, in wait_for
+    raise exceptions.TimeoutError() from exc
+asyncio.exceptions.TimeoutError
+2021-12-20 16:55:52,550 : ERROR : HUOBI_SWAP.ws.66: encountered an exception, reconnecting in 16.0 seconds
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 654, in __await_impl__
+    transport, protocol = await self._create_connection()
+  File "uvloop/loop.pyx", line 2069, in create_connection
+  File "uvloop/loop.pyx", line 2064, in uvloop.loop.Loop.create_connection
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 492, in wait_for
+    fut.result()
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 494, in wait_for
+    raise exceptions.TimeoutError() from exc
+asyncio.exceptions.TimeoutError
+2021-12-20 16:56:04,589 : ERROR : BITSTAMP.ws.49: encountered an exception, reconnecting in 16.0 seconds
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 654, in __await_impl__
+    transport, protocol = await self._create_connection()
+  File "uvloop/loop.pyx", line 2014, in create_connection
+  File "uvloop/loop.pyx", line 2001, in uvloop.loop.Loop.create_connection
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 492, in wait_for
+    fut.result()
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 494, in wait_for
+    raise exceptions.TimeoutError() from exc
+asyncio.exceptions.TimeoutError
+2021-12-20 19:07:55,870 : ERROR : DYDX.ws.59: encountered an exception, reconnecting in 8.0 seconds
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 654, in __await_impl__
+    transport, protocol = await self._create_connection()
+  File "uvloop/loop.pyx", line 2069, in create_connection
+  File "uvloop/loop.pyx", line 2064, in uvloop.loop.Loop.create_connection
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 492, in wait_for
+    fut.result()
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 59, in _create_connection
+    async with self.conn.connect() as connection:
+  File "/usr/lib64/python3.9/contextlib.py", line 175, in __aenter__
+    return await self.gen.__anext__()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 94, in connect
+    await self._open()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 304, in _open
+    self.conn = await websockets.connect(self.address, **self.ws_kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/client.py", line 650, in __await_impl_timeout__
+    return await asyncio.wait_for(self.__await_impl__(), self.open_timeout)
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 494, in wait_for
+    raise exceptions.TimeoutError() from exc
+asyncio.exceptions.TimeoutError
+2021-12-20 19:07:56,011 : WARNING : DERIBIT.ws.58: encountered connection issue [Errno 5] Input/output error - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 119, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/deribit.py", line 351, in message_handler
+    await self._book_update(msg_dict, timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/deribit.py", line 302, in _book_update
+    await self.book_callback(L2_BOOK, self._l2_book[pair], timestamp, timestamp=self.timestamp_normalize(ts), raw=msg, delta=delta, sequence_number=msg['params']['data']['change_id'])
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 190, in book_callback
+    await self.callback(book_type, book, receipt_timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 201, in callback
+    await cb(obj, receipt_timestamp)
+  File "/home/ec2-user/gitRepo/jarCrypto/tick/code/fh/script/crypto.py", line 60, in book
+    print(f'Book received at {receipt_timestamp} for {book.exchange} - {book.symbol}, with {len(book.book)} entries. Top of book prices: {book.book.asks.index(0)[0]} - {book.book.bids.index(0)[0]}')
+OSError: [Errno 5] Input/output error
+2021-12-20 19:07:56,063 : WARNING : BINANCE_FUTURES.http.43.http.43: encountered connection issue [Errno 5] Input/output error - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 119, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/binance_futures.py", line 248, in message_handler
+    return await self._open_interest(msg, timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/binance_futures.py", line 93, in _open_interest
+    await self.callback(OPEN_INTEREST, o, timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 201, in callback
+    await cb(obj, receipt_timestamp)
+  File "/home/ec2-user/gitRepo/jarCrypto/tick/code/fh/script/crypto.py", line 72, in oi
+    print(f"Open Interest update received at {receipt_timestamp}: {update}")
+OSError: [Errno 5] Input/output error
+2021-12-20 19:07:56,570 : WARNING : BITMEX.ws.48: received no messages within timeout, restarting connection
+2021-12-20 19:07:56,571 : WARNING : HITBTC.ws.63: received no messages within timeout, restarting connection
+2021-12-20 19:07:56,571 : WARNING : UPBIT.ws.79: received no messages within timeout, restarting connection
+2021-12-20 19:07:56,626 : WARNING : HITBTC.ws.63: encountered connection issue [Errno 5] Input/output error - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 119, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/bequant.py", line 341, in message_handler
+    await self._trades(params, ts)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/bequant.py", line 149, in _trades
+    await self.callback(TRADES, t, timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 201, in callback
+    await cb(obj, receipt_timestamp)
+  File "/home/ec2-user/gitRepo/jarCrypto/tick/code/fh/script/crypto.py", line 55, in trade
+    print(f"Timestamp: {timestamp} Feed: {feed} Pair: {pair} ID: {order_id} Side: {side} Amount: {amount} Price: {price}")
+OSError: [Errno 5] Input/output error
+2021-12-20 19:07:56,628 : WARNING : UPBIT.ws.79: encountered connection issue [Errno 5] Input/output error - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 119, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/upbit.py", line 136, in message_handler
+    await self._book(msg, timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/upbit.py", line 127, in _book
+    await self.book_callback(L2_BOOK, self._l2_book[pair], timestamp, timestamp=orderbook_timestamp, raw=msg)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 190, in book_callback
+    await self.callback(book_type, book, receipt_timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 201, in callback
+    await cb(obj, receipt_timestamp)
+  File "/home/ec2-user/gitRepo/jarCrypto/tick/code/fh/script/crypto.py", line 60, in book
+    print(f'Book received at {receipt_timestamp} for {book.exchange} - {book.symbol}, with {len(book.book)} entries. Top of book prices: {book.book.asks.index(0)[0]} - {book.book.bids.index(0)[0]}')
+OSError: [Errno 5] Input/output error
+2021-12-20 19:07:57,219 : WARNING : BEQUANT.ws.40: encountered connection issue sent 1000 (OK); no close frame received - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/lib64/python3.9/contextlib.py", line 193, in __aexit__
+    await self.gen.athrow(typ, value, traceback)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 98, in connect
+    await self.close()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 111, in close
+    await conn.close()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 749, in close
+    await asyncio.wait_for(
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 481, in wait_for
+    return fut.result()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 1215, in write_close_frame
+    await self.write_frame(True, OP_CLOSE, data, _state=State.CLOSING)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 1188, in write_frame
+    await self.drain()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 1177, in drain
+    await self.ensure_open()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 920, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedError: sent 1000 (OK); no close frame received
+2021-12-20 19:07:57,219 : WARNING : BITFINEX.ws.45: encountered connection issue sent 1000 (OK); no close frame received - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/lib64/python3.9/contextlib.py", line 193, in __aexit__
+    await self.gen.athrow(typ, value, traceback)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 98, in connect
+    await self.close()
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection.py", line 111, in close
+    await conn.close()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 749, in close
+    await asyncio.wait_for(
+  File "/usr/lib64/python3.9/asyncio/tasks.py", line 481, in wait_for
+    return fut.result()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 1215, in write_close_frame
+    await self.write_frame(True, OP_CLOSE, data, _state=State.CLOSING)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 1188, in write_frame
+    await self.drain()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 1177, in drain
+    await self.ensure_open()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/websockets/legacy/protocol.py", line 920, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedError: sent 1000 (OK); no close frame received
+2021-12-20 19:07:57,428 : WARNING : GATEIO.ws.61: encountered connection issue [Errno 5] Input/output error - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 119, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/gateio.py", line 254, in message_handler
+    await self._process_l2_book(msg, timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/gateio.py", line 197, in _process_l2_book
+    await self.book_callback(L2_BOOK, self._l2_book[symbol], timestamp, delta=delta, timestamp=ts, raw=msg)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 190, in book_callback
+    await self.callback(book_type, book, receipt_timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 201, in callback
+    await cb(obj, receipt_timestamp)
+  File "/home/ec2-user/gitRepo/jarCrypto/tick/code/fh/script/crypto.py", line 60, in book
+    print(f'Book received at {receipt_timestamp} for {book.exchange} - {book.symbol}, with {len(book.book)} entries. Top of book prices: {book.book.asks.index(0)[0]} - {book.book.bids.index(0)[0]}')
+OSError: [Errno 5] Input/output error
+2021-12-20 19:07:57,455 : WARNING : PHEMEX.ws.75: encountered connection issue [Errno 5] Input/output error - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 119, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/phemex.py", line 650, in message_handler
+    await self._book(msg, timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/phemex.py", line 115, in _book
+    await self.book_callback(L2_BOOK, self._l2_book[symbol], timestamp, timestamp=ts, delta=delta)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 190, in book_callback
+    await self.callback(book_type, book, receipt_timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 201, in callback
+    await cb(obj, receipt_timestamp)
+  File "/home/ec2-user/gitRepo/jarCrypto/tick/code/fh/script/crypto.py", line 60, in book
+    print(f'Book received at {receipt_timestamp} for {book.exchange} - {book.symbol}, with {len(book.book)} entries. Top of book prices: {book.book.asks.index(0)[0]} - {book.book.bids.index(0)[0]}')
+OSError: [Errno 5] Input/output error
+2021-12-20 19:07:57,457 : WARNING : BITHUMB.ws.47: encountered connection issue [Errno 5] Input/output error - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 119, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/bithumb.py", line 129, in message_handler
+    await self._trades(msg, timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/bithumb.py", line 122, in _trades
+    await self.callback(TRADES, t, rtimestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 201, in callback
+    await cb(obj, receipt_timestamp)
+  File "/home/ec2-user/gitRepo/jarCrypto/tick/code/fh/script/crypto.py", line 55, in trade
+    print(f"Timestamp: {timestamp} Feed: {feed} Pair: {pair} ID: {order_id} Side: {side} Amount: {amount} Price: {price}")
+OSError: [Errno 5] Input/output error
+2021-12-20 19:07:57,458 : WARNING : FMFW.ws.38: encountered connection issue [Errno 5] Input/output error - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 119, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/fmfw.py", line 201, in message_handler
+    await self._book(msg, ts)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/fmfw.py", line 90, in _book
+    await self.book_callback(L2_BOOK, self._l2_book[symbol], ts, sequence_number=update['s'], delta=delta, raw=msg, timestamp=self.timestamp_normalize(update['t']))
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 190, in book_callback
+    await self.callback(book_type, book, receipt_timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 201, in callback
+    await cb(obj, receipt_timestamp)
+  File "/home/ec2-user/gitRepo/jarCrypto/tick/code/fh/script/crypto.py", line 60, in book
+    print(f'Book received at {receipt_timestamp} for {book.exchange} - {book.symbol}, with {len(book.book)} entries. Top of book prices: {book.book.asks.index(0)[0]} - {book.book.bids.index(0)[0]}')
+OSError: [Errno 5] Input/output error
+2021-12-20 19:07:57,481 : WARNING : GEMINI.ws.62: encountered connection issue [Errno 5] Input/output error - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 119, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/gemini.py", line 181, in message_handler
+    await self._book(msg, timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/gemini.py", line 105, in _book
+    await self.book_callback(L2_BOOK, self._l2_book[pair], timestamp, delta=delta if not forced else None, raw=msg)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 190, in book_callback
+    await self.callback(book_type, book, receipt_timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 201, in callback
+    await cb(obj, receipt_timestamp)
+  File "/home/ec2-user/gitRepo/jarCrypto/tick/code/fh/script/crypto.py", line 60, in book
+    print(f'Book received at {receipt_timestamp} for {book.exchange} - {book.symbol}, with {len(book.book)} entries. Top of book prices: {book.book.asks.index(0)[0]} - {book.book.bids.index(0)[0]}')
+OSError: [Errno 5] Input/output error
+2021-12-20 19:07:57,482 : WARNING : BYBIT.ws.55: encountered connection issue [Errno 5] Input/output error - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 119, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/bybit.py", line 174, in message_handler
+    await self._book(msg, timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/bybit.py", line 425, in _book
+    await self.book_callback(L2_BOOK, self._l2_book[pair], timestamp, timestamp=ts / 1000000, raw=msg, delta=delta)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 190, in book_callback
+    await self.callback(book_type, book, receipt_timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 201, in callback
+    await cb(obj, receipt_timestamp)
+  File "/home/ec2-user/gitRepo/jarCrypto/tick/code/fh/script/crypto.py", line 60, in book
+    print(f'Book received at {receipt_timestamp} for {book.exchange} - {book.symbol}, with {len(book.book)} entries. Top of book prices: {book.book.asks.index(0)[0]} - {book.book.bids.index(0)[0]}')
+OSError: [Errno 5] Input/output error
+2021-12-20 19:07:57,484 : WARNING : BYBIT.ws.53: encountered connection issue [Errno 5] Input/output error - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 119, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/bybit.py", line 178, in message_handler
+    await self._instrument_info(msg, timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/bybit.py", line 342, in _instrument_info
+    await self.callback(INDEX, i, timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 201, in callback
+    await cb(obj, receipt_timestamp)
+  File "/home/ec2-user/gitRepo/jarCrypto/tick/code/fh/script/crypto.py", line 76, in index
+    print(f"Index received at {receipt_timestamp}: {i}")
+OSError: [Errno 5] Input/output error
+2021-12-20 19:07:57,743 : WARNING : BINANCE_FUTURES.ws.42: encountered connection issue [Errno 5] Input/output error - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 119, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/binance_futures.py", line 272, in message_handler
+    await self._trade(msg, timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/binance.py", line 200, in _trade
+    await self.callback(TRADES, t, timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 201, in callback
+    await cb(obj, receipt_timestamp)
+  File "/home/ec2-user/gitRepo/jarCrypto/tick/code/fh/script/crypto.py", line 55, in trade
+    print(f"Timestamp: {timestamp} Feed: {feed} Pair: {pair} ID: {order_id} Side: {side} Amount: {amount} Price: {price}")
+OSError: [Errno 5] Input/output error
+2021-12-20 19:07:57,745 : WARNING : BYBIT.ws.54: encountered connection issue [Errno 5] Input/output error - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 119, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/bybit.py", line 174, in message_handler
+    await self._book(msg, timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/bybit.py", line 425, in _book
+    await self.book_callback(L2_BOOK, self._l2_book[pair], timestamp, timestamp=ts / 1000000, raw=msg, delta=delta)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 190, in book_callback
+    await self.callback(book_type, book, receipt_timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 201, in callback
+    await cb(obj, receipt_timestamp)
+  File "/home/ec2-user/gitRepo/jarCrypto/tick/code/fh/script/crypto.py", line 60, in book
+    print(f'Book received at {receipt_timestamp} for {book.exchange} - {book.symbol}, with {len(book.book)} entries. Top of book prices: {book.book.asks.index(0)[0]} - {book.book.bids.index(0)[0]}')
+OSError: [Errno 5] Input/output error
+2021-12-20 19:07:57,745 : WARNING : BYBIT.ws.52: encountered connection issue [Errno 5] Input/output error - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 119, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/bybit.py", line 178, in message_handler
+    await self._instrument_info(msg, timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/bybit.py", line 342, in _instrument_info
+    await self.callback(INDEX, i, timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 201, in callback
+    await cb(obj, receipt_timestamp)
+  File "/home/ec2-user/gitRepo/jarCrypto/tick/code/fh/script/crypto.py", line 76, in index
+    print(f"Index received at {receipt_timestamp}: {i}")
+OSError: [Errno 5] Input/output error
+2021-12-20 19:07:57,750 : WARNING : HUOBI.ws.64: encountered connection issue [Errno 5] Input/output error - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 119, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/huobi.py", line 159, in message_handler
+    await self._trade(msg, timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/huobi.py", line 107, in _trade
+    await self.callback(TRADES, t, timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 201, in callback
+    await cb(obj, receipt_timestamp)
+  File "/home/ec2-user/gitRepo/jarCrypto/tick/code/fh/script/crypto.py", line 55, in trade
+    print(f"Timestamp: {timestamp} Feed: {feed} Pair: {pair} ID: {order_id} Side: {side} Amount: {amount} Price: {price}")
+OSError: [Errno 5] Input/output error
+2021-12-20 19:07:57,794 : WARNING : KUCOIN.ws.72: encountered connection issue [Errno 5] Input/output error - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 119, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/kucoin.py", line 259, in message_handler
+    await self._trades(msg, symbol, timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/kucoin.py", line 157, in _trades
+    await self.callback(TRADES, t, timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 201, in callback
+    await cb(obj, receipt_timestamp)
+  File "/home/ec2-user/gitRepo/jarCrypto/tick/code/fh/script/crypto.py", line 55, in trade
+    print(f"Timestamp: {timestamp} Feed: {feed} Pair: {pair} ID: {order_id} Side: {side} Amount: {amount} Price: {price}")
+OSError: [Errno 5] Input/output error
+2021-12-20 19:07:57,796 : WARNING : HUOBI_DM.ws.65: encountered connection issue [Errno 5] Input/output error - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 119, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/huobi_dm.py", line 130, in message_handler
+    await self._book(msg, timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/huobi_dm.py", line 89, in _book
+    await self.book_callback(L2_BOOK, self._l2_book[pair], timestamp, timestamp=self.timestamp_normalize(msg['ts']), raw=msg)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 190, in book_callback
+    await self.callback(book_type, book, receipt_timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 201, in callback
+    await cb(obj, receipt_timestamp)
+  File "/home/ec2-user/gitRepo/jarCrypto/tick/code/fh/script/crypto.py", line 60, in book
+    print(f'Book received at {receipt_timestamp} for {book.exchange} - {book.symbol}, with {len(book.book)} entries. Top of book prices: {book.book.asks.index(0)[0]} - {book.book.bids.index(0)[0]}')
+OSError: [Errno 5] Input/output error
+2021-12-20 19:07:57,805 : WARNING : ASCENDEX.ws.39: encountered connection issue [Errno 5] Input/output error - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 119, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/ascendex.py", line 121, in message_handler
+    await self._book(msg, timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/ascendex.py", line 113, in _book
+    await self.book_callback(L2_BOOK, self._l2_book[pair], timestamp, timestamp=self.timestamp_normalize(msg['data']['ts']), raw=msg, delta=delta if msg['m'] != 'depth-snapshot' else None, sequence_number=sequence_number)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 190, in book_callback
+    await self.callback(book_type, book, receipt_timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 201, in callback
+    await cb(obj, receipt_timestamp)
+  File "/home/ec2-user/gitRepo/jarCrypto/tick/code/fh/script/crypto.py", line 60, in book
+    print(f'Book received at {receipt_timestamp} for {book.exchange} - {book.symbol}, with {len(book.book)} entries. Top of book prices: {book.book.asks.index(0)[0]} - {book.book.bids.index(0)[0]}')
+OSError: [Errno 5] Input/output error
+2021-12-20 19:07:57,806 : WARNING : POLONIEX.ws.77: encountered connection issue [Errno 5] Input/output error - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 119, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/poloniex.py", line 160, in message_handler
+    await self._book(msg[2], chan_id, timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/poloniex.py", line 128, in _book
+    await self.book_callback(L2_BOOK, self._l2_book[pair], timestamp, delta=delta, raw=msg)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 190, in book_callback
+    await self.callback(book_type, book, receipt_timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 201, in callback
+    await cb(obj, receipt_timestamp)
+  File "/home/ec2-user/gitRepo/jarCrypto/tick/code/fh/script/crypto.py", line 60, in book
+    print(f'Book received at {receipt_timestamp} for {book.exchange} - {book.symbol}, with {len(book.book)} entries. Top of book prices: {book.book.asks.index(0)[0]} - {book.book.bids.index(0)[0]}')
+OSError: [Errno 5] Input/output error
+2021-12-20 19:07:57,806 : WARNING : BINANCE.ws.41: encountered connection issue [Errno 5] Input/output error - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 119, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/binance.py", line 522, in message_handler
+    await self._book(msg, pair, timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/binance.py", line 343, in _book
+    await self.book_callback(L2_BOOK, self._l2_book[pair], timestamp, timestamp=self.timestamp_normalize(msg['E']), raw=msg, delta=delta, sequence_number=self.last_update_id[pair])
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 190, in book_callback
+    await self.callback(book_type, book, receipt_timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 201, in callback
+    await cb(obj, receipt_timestamp)
+  File "/home/ec2-user/gitRepo/jarCrypto/tick/code/fh/script/crypto.py", line 60, in book
+    print(f'Book received at {receipt_timestamp} for {book.exchange} - {book.symbol}, with {len(book.book)} entries. Top of book prices: {book.book.asks.index(0)[0]} - {book.book.bids.index(0)[0]}')
+OSError: [Errno 5] Input/output error
+2021-12-20 19:08:08,044 : WARNING : BINANCE_US.ws.44: encountered connection issue [Errno 5] Input/output error - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 119, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/binance.py", line 522, in message_handler
+    await self._book(msg, pair, timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/binance.py", line 343, in _book
+    await self.book_callback(L2_BOOK, self._l2_book[pair], timestamp, timestamp=self.timestamp_normalize(msg['E']), raw=msg, delta=delta, sequence_number=self.last_update_id[pair])
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 190, in book_callback
+    await self.callback(book_type, book, receipt_timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 201, in callback
+    await cb(obj, receipt_timestamp)
+  File "/home/ec2-user/gitRepo/jarCrypto/tick/code/fh/script/crypto.py", line 60, in book
+    print(f'Book received at {receipt_timestamp} for {book.exchange} - {book.symbol}, with {len(book.book)} entries. Top of book prices: {book.book.asks.index(0)[0]} - {book.book.bids.index(0)[0]}')
+OSError: [Errno 5] Input/output error
+2021-12-20 19:08:08,044 : WARNING : OKEX.ws.73: encountered connection issue [Errno 5] Input/output error - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 119, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/okex.py", line 378, in message_handler
+    await self._book(msg, timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/okex.py", line 262, in _book
+    await self.book_callback(L2_BOOK, self._l2_book[pair], timestamp, timestamp=self.timestamp_normalize(int(update['ts'])), raw=msg, delta=delta, checksum=update['checksum'] & 0xFFFFFFFF)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 190, in book_callback
+    await self.callback(book_type, book, receipt_timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 201, in callback
+    await cb(obj, receipt_timestamp)
+  File "/home/ec2-user/gitRepo/jarCrypto/tick/code/fh/script/crypto.py", line 60, in book
+    print(f'Book received at {receipt_timestamp} for {book.exchange} - {book.symbol}, with {len(book.book)} entries. Top of book prices: {book.book.asks.index(0)[0]} - {book.book.bids.index(0)[0]}')
+OSError: [Errno 5] Input/output error
+2021-12-20 19:08:08,046 : WARNING : COINBASE.ws.56: encountered connection issue [Errno 5] Input/output error - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 119, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/coinbase.py", line 364, in message_handler
+    await self._pair_level2_update(msg, timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/coinbase.py", line 199, in _pair_level2_update
+    await self.book_callback(L2_BOOK, self._l2_book[pair], timestamp, timestamp=ts, raw=msg, delta=delta)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 190, in book_callback
+    await self.callback(book_type, book, receipt_timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 201, in callback
+    await cb(obj, receipt_timestamp)
+  File "/home/ec2-user/gitRepo/jarCrypto/tick/code/fh/script/crypto.py", line 60, in book
+    print(f'Book received at {receipt_timestamp} for {book.exchange} - {book.symbol}, with {len(book.book)} entries. Top of book prices: {book.book.asks.index(0)[0]} - {book.book.bids.index(0)[0]}')
+OSError: [Errno 5] Input/output error
+2021-12-20 19:08:08,047 : WARNING : POLONIEX.ws.76: encountered connection issue [Errno 5] Input/output error - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 119, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/poloniex.py", line 144, in message_handler
+    await self._ticker(msg[2], timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/poloniex.py", line 74, in _ticker
+    await self.callback(TICKER, t, timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 201, in callback
+    await cb(obj, receipt_timestamp)
+  File "/home/ec2-user/gitRepo/jarCrypto/tick/code/fh/script/crypto.py", line 40, in ticker
+    print(f'Ticker received at {receipt_timestamp}: {t}')
+OSError: [Errno 5] Input/output error
+2021-12-20 19:08:08,047 : WARNING : OKCOIN.ws.74: encountered connection issue [Errno 5] Input/output error - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 119, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/okcoin.py", line 164, in message_handler
+    await self._book(msg, timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/okcoin.py", line 139, in _book
+    await self.book_callback(L2_BOOK, self._l2_book[pair], timestamp, timestamp=self.timestamp_normalize(update['timestamp']), raw=msg, delta=delta, checksum=update['checksum'] & 0xFFFFFFFF)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 190, in book_callback
+    await self.callback(book_type, book, receipt_timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 201, in callback
+    await cb(obj, receipt_timestamp)
+  File "/home/ec2-user/gitRepo/jarCrypto/tick/code/fh/script/crypto.py", line 60, in book
+    print(f'Book received at {receipt_timestamp} for {book.exchange} - {book.symbol}, with {len(book.book)} entries. Top of book prices: {book.book.asks.index(0)[0]} - {book.book.bids.index(0)[0]}')
+OSError: [Errno 5] Input/output error
+2021-12-20 19:08:08,050 : WARNING : FTX.ws.60: encountered connection issue [Errno 5] Input/output error - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 119, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/ftx.py", line 426, in message_handler
+    await self._ticker(msg, timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/ftx.py", line 277, in _ticker
+    await self.callback(TICKER, t, timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 201, in callback
+    await cb(obj, receipt_timestamp)
+  File "/home/ec2-user/gitRepo/jarCrypto/tick/code/fh/script/crypto.py", line 40, in ticker
+    print(f'Ticker received at {receipt_timestamp}: {t}')
+OSError: [Errno 5] Input/output error
+2021-12-20 19:08:08,051 : WARNING : BITTREX.ws.50: encountered connection issue [Errno 5] Input/output error - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 119, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/bittrex.py", line 246, in message_handler
+    await self.book(data, timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/bittrex.py", line 144, in book
+    await self.book_callback(L2_BOOK, self._l2_book[pair], timestamp, raw=msg, sequence_number=seq_no, delta=delta)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 190, in book_callback
+    await self.callback(book_type, book, receipt_timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 201, in callback
+    await cb(obj, receipt_timestamp)
+  File "/home/ec2-user/gitRepo/jarCrypto/tick/code/fh/script/crypto.py", line 60, in book
+    print(f'Book received at {receipt_timestamp} for {book.exchange} - {book.symbol}, with {len(book.book)} entries. Top of book prices: {book.book.asks.index(0)[0]} - {book.book.bids.index(0)[0]}')
+OSError: [Errno 5] Input/output error
+2021-12-20 19:08:08,052 : WARNING : COINBASE.ws.37: encountered connection issue [Errno 5] Input/output error - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 119, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/coinbase.py", line 360, in message_handler
+    await self._book_update(msg, timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/coinbase.py", line 169, in _book_update
+    await self.callback(TRADES, t, timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 201, in callback
+    await cb(obj, receipt_timestamp)
+  File "/home/ec2-user/gitRepo/jarCrypto/tick/code/fh/script/crypto.py", line 55, in trade
+    print(f"Timestamp: {timestamp} Feed: {feed} Pair: {pair} ID: {order_id} Side: {side} Amount: {amount} Price: {price}")
+OSError: [Errno 5] Input/output error
+2021-12-20 19:08:08,052 : WARNING : KRAKEN.ws.68: encountered connection issue [Errno 5] Input/output error - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 119, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/kraken.py", line 228, in message_handler
+    await self._book(msg, pair, timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/kraken.py", line 178, in _book
+    await self.book_callback(L2_BOOK, self._l2_book[pair], timestamp, delta=delta, raw=msg, checksum=int(msg[0]['c']) if 'c' in msg[0] else None)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 190, in book_callback
+    await self.callback(book_type, book, receipt_timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 201, in callback
+    await cb(obj, receipt_timestamp)
+  File "/home/ec2-user/gitRepo/jarCrypto/tick/code/fh/script/crypto.py", line 60, in book
+    print(f'Book received at {receipt_timestamp} for {book.exchange} - {book.symbol}, with {len(book.book)} entries. Top of book prices: {book.book.asks.index(0)[0]} - {book.book.bids.index(0)[0]}')
+OSError: [Errno 5] Input/output error
+2021-12-20 19:08:08,188 : WARNING : KRAKEN_FUTURES.ws.67: encountered connection issue [Errno 5] Input/output error - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 119, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/kraken_futures.py", line 257, in message_handler
+    await self._book(msg, pair, timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/kraken_futures.py", line 203, in _book
+    await self.book_callback(L2_BOOK, self._l2_book[pair], timestamp, delta=delta, sequence_number=msg['seq'], raw=msg)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 190, in book_callback
+    await self.callback(book_type, book, receipt_timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 201, in callback
+    await cb(obj, receipt_timestamp)
+  File "/home/ec2-user/gitRepo/jarCrypto/tick/code/fh/script/crypto.py", line 62, in book
+    print(f"Delta from last book contains {len(book.delta[BID]) + len(book.delta[ASK])} entries.")
+OSError: [Errno 5] Input/output error
+2021-12-20 19:08:08,219 : WARNING : COINBASE.ws.57: encountered connection issue [Errno 5] Input/output error - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 119, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/coinbase.py", line 368, in message_handler
+    await self._done(msg, timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/coinbase.py", line 289, in _done
+    await self.book_callback(L3_BOOK, self._l3_book[pair], timestamp, delta=delta, timestamp=ts, raw=msg, sequence_number=msg['sequence'])
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 190, in book_callback
+    await self.callback(book_type, book, receipt_timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 201, in callback
+    await cb(obj, receipt_timestamp)
+  File "/home/ec2-user/gitRepo/jarCrypto/tick/code/fh/script/crypto.py", line 60, in book
+    print(f'Book received at {receipt_timestamp} for {book.exchange} - {book.symbol}, with {len(book.book)} entries. Top of book prices: {book.book.asks.index(0)[0]} - {book.book.bids.index(0)[0]}')
+OSError: [Errno 5] Input/output error
+2021-12-20 19:08:17,825 : WARNING : KRAKEN.ws.70: encountered connection issue [Errno 5] Input/output error - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 119, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/kraken.py", line 230, in message_handler
+    await self._candle(msg, pair, timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/kraken.py", line 214, in _candle
+    await self.callback(CANDLES, c, timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 201, in callback
+    await cb(obj, receipt_timestamp)
+  File "/home/ec2-user/gitRepo/jarCrypto/tick/code/fh/script/crypto.py", line 80, in candle_callback
+    print(f"Candle received at {receipt_timestamp}: {c}")
+OSError: [Errno 5] Input/output error
+2021-12-20 19:08:17,825 : WARNING : KRAKEN.ws.71: encountered connection issue [Errno 5] Input/output error - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 119, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/kraken.py", line 226, in message_handler
+    await self._ticker(msg, pair, timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/kraken.py", line 140, in _ticker
+    await self.callback(TICKER, t, timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 201, in callback
+    await cb(obj, receipt_timestamp)
+  File "/home/ec2-user/gitRepo/jarCrypto/tick/code/fh/script/crypto.py", line 40, in ticker
+    print(f'Ticker received at {receipt_timestamp}: {t}')
+OSError: [Errno 5] Input/output error
+2021-12-20 19:08:17,826 : WARNING : KRAKEN.ws.69: encountered connection issue [Errno 5] Input/output error - reconnecting in 1.0 seconds...
+Traceback (most recent call last):
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 69, in _create_connection
+    await self._handler(connection, self.handler)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/connection_handler.py", line 119, in _handler
+    await handler(message, connection, self.conn.last_message)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/kraken.py", line 224, in message_handler
+    await self._trade(msg, pair, timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/exchanges/kraken.py", line 132, in _trade
+    await self.callback(TRADES, t, timestamp)
+  File "/usr/local/lib64/python3.9/site-packages/cryptofeed/feed.py", line 201, in callback
+    await cb(obj, receipt_timestamp)
+  File "/home/ec2-user/gitRepo/jarCrypto/tick/code/fh/script/crypto.py", line 55, in trade
+    print(f"Timestamp: {timestamp} Feed: {feed} Pair: {pair} ID: {order_id} Side: {side} Amount: {amount} Price: {price}")
+OSError: [Errno 5] Input/output error

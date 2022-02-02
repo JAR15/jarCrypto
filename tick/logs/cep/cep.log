@@ -1,0 +1,6 @@
+Welcome to kdb+ 32bit edition
+For support please see http://groups.google.com/d/forum/personal-kdbplus
+Tutorials can be found at http://code.kx.com
+To exit, type \\
+To remove this startup msg, edit q.q
+'2022.01.30T11:10:27.702 /home/ec2-user/gitRepo/jarCrypto/tick/code/cep/cryptoTrade.q. OS reports: No such file or directory
